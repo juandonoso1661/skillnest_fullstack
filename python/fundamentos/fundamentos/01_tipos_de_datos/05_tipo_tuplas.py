@@ -4,7 +4,7 @@ tupla_sin_parentesis = "a", "e", "i", "o", "u"
 
 #Cualquier tipo de dato
 gato = ("Miau" , 5, "persa", False)
-o[0] #Imprime: Miau
+ #Imprime: Miau
 
 #Ejemplo de error en tuplas
 gato[0] = "Michi" ##ERROR: TypeError: 'tuple' object does not support item assignment
