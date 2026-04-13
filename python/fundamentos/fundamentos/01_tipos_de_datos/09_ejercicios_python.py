@@ -11,7 +11,7 @@ def numerosDinamicos():
 
 #2. Verificador de Edad y Acceso
 #Pide al usuario su año de nacimiento. Calcula su edad y muestra si es mayor de edad (18+). Si tiene menos de 18, indica cuántos años le faltan para la mayoría de edad.
-def verificar_edad():
+def verificarEdad():
  campo = input("Ingrese su año de nacimiento: ")
  edad = 2026 - int(campo)
  if campo == "":
@@ -20,28 +20,23 @@ def verificar_edad():
 
 #3. Calculadora de Descuentos
 #Solicita el precio de un producto y la cantidad comprada. Si el total supera los $100, aplica un 15% de descuento. Muestra el subtotal, el descuento aplicado y el total final.
-
-cantidad = int(input("Ingrese la cantidad de productos: "))
-precio = float(input("Ingrese el precio del producto: "))
+def aplicarDescuento():
+ cantidad = int(input("Ingrese la cantidad de productos: "))
+ precio = float(input("Ingrese el precio del producto: "))
 
 # Calcular subtotal
-subtotal = cantidad * precio
+def aplicarDescuento():
+ precio = float(input("Ingrese el precio solicitado del producto: "))
+ cantidad = int(input("Ingrese la cantidad de productos que compró: "))
+ producto = precio * cantidad
 
-# Verificar si aplica descuento
-if subtotal > 100:
-    descuento = subtotal * 0.15
-else:
-    descuento = 0
+ if producto >= 100:
+   descuento = producto * 0.15
+ else:
+   descuento = 0
+   total = producto - descuento
+   print(f"El subtotal es: ${producto}. el descuento aplicado es: ${descuento} y el total final es: ${total}")
 
-# Calcular total final
-total = subtotal - descuento
-
-# Mostrar resultados
-print("Subtotal:", subtotal)
-print("Descuento aplicado:", descuento)
-print("Total final:", total)
-
-#4. Clasificador de Números
 #Pide un número al usuario e indica si es: Positivo-Par, Positivo-Impar, Negativo-Par, Negativo-Impar o Cero.
 def clasificadorNum():
    num = int(input("Ingrese un número"))
@@ -72,15 +67,51 @@ def tablaMultiplicar():
       resultado = num * i
       if resultado % 3 == 0:
          print(f"Del {num} solo estos numeros son divisibles por 3 : {resultado}")
+
 #6. Sumatoria con Centinela
 #Crea un programa que pida números continuamente y los sume. El ciclo debe terminar cuando el usuario ingrese un número negativo. Al final, muestra la suma total (sin incluir el negativo).
+
+def sumaCentinela():
+   suma_total = 0
+   while True:
+      n = (input("Ingresa un número: (negativo para salir)"))
+      if n < 0:
+         break
+      suma_total += n
+print(f"La suma total es: ")
 
 #7. Contador de Vocales
 #Pide al usuario una frase o palabra. Utiliza un bucle para recorrer la cadena y contar cuántas vocales tiene en total.
 
+def contadorVocales():
+   texto = input("Ingresa una palabra o frase:").lower()
+   vocales = 0
+   for i in range(len(texto)):
+      #Repetir ls condicion con cada vocal
+      if texto[i] == "a" or texto[i] == "e" or texto[i] == "o" or texto[i] == "u":
+         vocales += 1
+      #Mismo de arriba pero con las vovales con tilde
+      elif texto[i] == "á" or texto[i] == "e" or texto[i] == "i" or texto[i] == "u":
+         vocales += 1
+      print(f"La cadena '{texto}' tiene {vocales} vocales en total")
+
 #8. Validación de Contraseña
 #Define una contraseña en una variable. Pide al usuario que la intente adivinar. Tienes un máximo de 3 intentos; si falla los 3, bloquea el acceso.
-
+def validacion():
+   con = 123456
+   intentos = 0
+   while True:
+      ingresa = (input("ingresa la contraseña:"))
+      if ingresa == con:
+         print("acceso concedido")
+         break
+      else:
+         intentos += 1
+         if intentos > 3:
+            print("Acceso denegado")
+            break
+         else:
+            print(f"números de intentos: {intentos}")
 #--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 #III. Manejo de Arreglos / Listas (Avanzado)
@@ -133,11 +164,26 @@ while continuar:
     print("---15.-Ejercicio 15---")
     opcion = input("\n---Elige una opción: (1-15) (0 para salir) = ")
     if opcion == "1":
-        print("\nEjecutando ejercicio 1: ")
+        print("\nEjecutando ejercicio 1:")
         print(numerosDinamicos())
     elif opcion == "2":
-        print("\nEjecutando ejercicio 2: ")
-        print()
+        print("\nEjecutando ejercicio 2:")
+        print(verificarEdad())
+    elif opcion == "3":
+       print("n\Ejecutando ejercicio 3:")
+       print(aplicarDescuento())
+    elif opcion == "4":
+       print("n\Ejecutando ejercicio 4:")
+       print(clasificadorNum())
+    elif opcion == "5":
+       print("n\Ejecutando ejercicio 5:")
+       print(tablaMultiplicar())
+    elif opcion == "6":
+       print("n\Ejecutando ejercicio 6:")
+       print(sumaCentinela())
+    elif opcion == "7":
+       print("n\Ejecutando ejercicio 7:")
+       print(contadorVocales())
     elif opcion == "0":
         print("Saliendo...")
         continuar = False
