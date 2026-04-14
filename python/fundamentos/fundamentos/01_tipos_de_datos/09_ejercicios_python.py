@@ -74,11 +74,12 @@ def tablaMultiplicar():
 def sumaCentinela():
    suma_total = 0
    while True:
-      n = (input("Ingresa un número: (negativo para salir)"))
+      n = float(input("Ingresarun numero (negativo para salir):"))
       if n < 0:
          break
       suma_total += n
-print(f"La suma total es: ")
+      print(f"La suma total es: {suma_total}")
+
 
 #7. Contador de Vocales
 #Pide al usuario una frase o palabra. Utiliza un bucle para recorrer la cadena y contar cuántas vocales tiene en total.
@@ -118,7 +119,17 @@ def validacion():
 #9. Registro de Nombres
 #Crea un arreglo vacío. Pide al usuario que ingrese 5 nombres. Guárdalos en el arreglo y, al final, imprímelos en orden inverso al que fueron ingresados.
 
-
+def registroNombres():
+    nombres = []
+    maxi = 0
+    while maxi < 5:
+        inp = input(f"Por favor ingresar nombre {maxi + 1}")
+        if inp != "":
+            nombres.append(inp)
+        else:
+            print("Tienes que ingresar un nombre")
+            for i in range(4, -1, -1):
+                print(nombres[i])
 
 #10. Promedio de Notas
 #Solicita al usuario cuántas notas desea ingresar. Almacena cada nota en un arreglo. Al finalizar, calcula y muestra el promedio, la nota más alta y la más baja.
@@ -166,19 +177,63 @@ def buscarElemento():
 #13. Simulación de Inventario
 #Crea dos arreglos: uno para nombres_productos y otro para precios. Permite al usuario ingresar 3 productos con sus precios. Luego, muestra una lista formateada: Producto: [Nombre] - Precio: $[Valor].
 
+def inventario():
+   nombres_productos = []
+   precios = []
 
-+
-6
-+.36+0
+   for i in range(3):
+      nombre = input("Nombre del producto: ")
+      precio = float(input("Precio:  "))
+      nombres_productos.append(nombre)
+      precios.append(precio)
+   print("n\Inventario")
+   for i in range(3):
+      print(f"Producto: {nombres_productos[i]} - Precio {precios[i]}")
 
 #14. Generador de Lista de Compras
 #Usa un bucle while para que el usuario agregue artículos a una lista de compras. El proceso termina cuando el usuario escribe "terminar". Al final, muestra la lista ordenada alfabéticamente.
+
+def listaCompras():
+   lista = []
+   while True:
+      item = input("Articulo (o 'terminar')")
+      if item.lower() == "terminar":
+         break
+      lista.append(item)
+   print(f"Ordenada: {sorted(lista)}")
 
 #15. Análisis de Temperaturas
 #Solicita las temperaturas de los 7 días de la semana y guárdalas en un arreglo. Muestra:
 #El promedio semanal.
 #Cuántos días la temperatura fue superior a 25 grados.
 #El día con la temperatura más baja (asumiendo que el índice 0 es Lunes).
+
+def analisisTemperatura():
+   dias = ["Lunes" , "Martes" , "Miercoles" , "Jueves" , "Viernes" , "Sabado" , "Domingo"]
+   diasSuperior = []
+   total = 0
+   baja = 100
+   dia_baja = ""
+   cant = 0
+
+   while cant < 7:
+      temps = float(input(f"Ingrese la temperatura del dia {dias[cant]}"))
+      total += temps
+
+      if temps < baja and temps < 25:
+         baja = temps
+         diaBaja = dias[cant]
+      elif temps > 25:
+         diasSuperior.append(dias[cant])
+
+         cant += 1
+
+      print(f"El promedio de las temperaturas fue de {total / 7}")
+      print(f"El dia con la temperatura mas baja fue el dia {diaBaja} con {baja}")
+      print(f"Los dias mas calurosos fueron {diasSuperior}")
+
+
+
 continuar = True 
 
 while continuar:
@@ -225,7 +280,7 @@ while continuar:
        print(validacion())
     elif opcion == "9":
        print("n\Ejecutando ejercicio 9")
-       print()
+       print(registroNombres())
     elif opcion == "10":
        print("n\Ejecutando ejercicio 10")
        print(promedioNotas())
@@ -235,6 +290,15 @@ while continuar:
     elif opcion == "12":
        print("n\Ejecutanto ejercicio 12")
        print(buscarElemento())
+    elif opcion == "13":
+       print("n\Ejecutando ejercicio 13")
+       print(inventario())
+    elif opcion == "14":
+       print("n\Ejecutando ejercicio 14")
+       print(listaCompras())
+    elif opcion == "15":
+       print("n\Ejecutando ejercicio 15")
+       print(analisisTemperatura())
     elif opcion == "0":
         print("Saliendo...")
         continuar = False
