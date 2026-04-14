@@ -112,28 +112,64 @@ def validacion():
             break
          else:
             print(f"números de intentos: {intentos}")
-#--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 #III. Manejo de Arreglos / Listas (Avanzado)
 
 #9. Registro de Nombres
 #Crea un arreglo vacío. Pide al usuario que ingrese 5 nombres. Guárdalos en el arreglo y, al final, imprímelos en orden inverso al que fueron ingresados.
 
+
+
 #10. Promedio de Notas
 #Solicita al usuario cuántas notas desea ingresar. Almacena cada nota en un arreglo. Al finalizar, calcula y muestra el promedio, la nota más alta y la más baja.
+
+def promedioNotas():
+   cantidad = int(input("Cuantas notas desea ingresar"))
+   notas = []
+   for i in range(cantidad):
+      nota = float(input(f"Nota {i+1}:"))
+      notas.append(nota)
+
+      promedio = sum(notas) / len(notas)
+      print(f"Promedio: {promedio}")
+      print(f"Nota mas alta: {max(notas)}")
+      print(f"Nota mas baja: {min(notas)}")
 
 #11. Filtro de Arreglos
 #Dado un arreglo de números generado por el usuario, crea un nuevo arreglo que contenga solo los números que sean mayores a 50. Muestra ambos arreglos.
 
+def filtroArreglo():
+   cantidad = int(input("¿Cuantos numeros desea ingresar?"))
+   mayor50 = []
+   nUser = []
+   for i in range(1, cantidad + 1):
+      arraysUsuario = int(input("Ingrese un numero"))
+      nUser = arraysUsuario
+      if arraysUsuario > 50:
+         mayor50.append(arraysUsuario)
+      print(f"Valores ingresados por le usuario: {arraysUsuario} \nValores mayor a 50: {mayor50}")
+
 #12. Buscador de Elementos
 #Crea una lista de 10 ciudades. Pide al usuario que ingrese el nombre de una ciudad y el programa debe decir si la ciudad se encuentra en la lista y en qué índice (posición) está.
-
+def buscarElemento():
+   ciudades = ["Santiago" , "Tokio" , "Lima" , "Rio" , "Seul" , "Nairobi" , "Buenos aires" , "Utah" , "Denver" , "Atlanta"]
+   ciudad = input("Ingresar ciudad (con mayuscula al principio): ")
+   esta = ciudades.index(ciudad)
+   if esta < len(ciudades):
+      print(f"Tu ciudad está en el arreglo, en la posicion {esta}")
+   else:
+      print("Tu ciudad no esta en el arreglo")
 #-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 #IV. Retos de Lógica Combinada
 
 #13. Simulación de Inventario
 #Crea dos arreglos: uno para nombres_productos y otro para precios. Permite al usuario ingresar 3 productos con sus precios. Luego, muestra una lista formateada: Producto: [Nombre] - Precio: $[Valor].
+
+
++
+6
++.36+0
 
 #14. Generador de Lista de Compras
 #Usa un bucle while para que el usuario agregue artículos a una lista de compras. El proceso termina cuando el usuario escribe "terminar". Al final, muestra la lista ordenada alfabéticamente.
@@ -184,6 +220,21 @@ while continuar:
     elif opcion == "7":
        print("n\Ejecutando ejercicio 7:")
        print(contadorVocales())
+    elif opcion == "8":
+       print("n\Ejecutando ejercicio 8:")
+       print(validacion())
+    elif opcion == "9":
+       print("n\Ejecutando ejercicio 9")
+       print()
+    elif opcion == "10":
+       print("n\Ejecutando ejercicio 10")
+       print(promedioNotas())
+    elif opcion == "11":
+       print("n\Ejecutando ejercicio 11")
+       print(filtroArreglo())
+    elif opcion == "12":
+       print("n\Ejecutanto ejercicio 12")
+       print(buscarElemento())
     elif opcion == "0":
         print("Saliendo...")
         continuar = False
