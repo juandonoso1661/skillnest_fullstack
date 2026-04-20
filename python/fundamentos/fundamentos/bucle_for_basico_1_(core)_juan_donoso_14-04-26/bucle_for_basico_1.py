@@ -67,8 +67,11 @@ def contadorDinamico():
   inicio = 3
   fin = 10
   salto = 2
-  for num in range(inicio, fin + 1, salto):
-        print(num)
+
+  for num in range(inicio, fin + 1):
+        if num % salto == 0:
+            print(num)
+
 
 
 continuar = True
