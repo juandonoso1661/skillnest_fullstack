@@ -64,11 +64,12 @@ def retrocesoTemporal():
 # Se imprimiría: 4, 6, 8, 10
 
 def contadorDinamico():
-   inicio = 3
-   fin = 10
-   salto = 2
-   for i in range(inicio, fin, salto):
-      print(i)
+  inicio = 3
+  fin = 10
+  salto = 2
+  for num in range(inicio, fin + 1, salto):
+        print(num)
+
 
 continuar = True
 
