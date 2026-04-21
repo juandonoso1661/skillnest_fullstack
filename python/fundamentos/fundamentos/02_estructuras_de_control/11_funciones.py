@@ -36,3 +36,5 @@ def construirFrase(frase, palabra):
 frase = input("Ingrese una frase: ")
 palabra = input("Ingrese una palabra: ")
 resultadoFrase = construirFrase(frase, palabra)
+print(resultadoFrase)
+
