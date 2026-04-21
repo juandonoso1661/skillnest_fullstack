@@ -24,7 +24,8 @@ def mensajes_en_chat():
 
 
 # 3. Intentamos sumar el resultado de una función que no existe al de 'mensajes_en_chat'.
-print(cantidad_de_dias_en_el_anio() + mensajes_en_chat())
+def cantidad_de_dias_en_el_anio():
+    print(cantidad_de_dias_en_el_anio() + mensajes_en_chat())
 
 #Variables | Valores
 # 
@@ -169,7 +170,7 @@ print(horas_de_juego)
 #Variables | Valores
 # horas_de_juego        | 150, 350
 #        |
-# Salida: 150, 150, 
+# Salida: 150, 150, 350, 350
 #
 
 # 12. Similar al anterior, pero la función retorna el valor local 'horas_de_juego'.
@@ -185,6 +186,11 @@ print(horas_de_juego)
 mostrar_horas_local()
 print(horas_de_juego)
 
+#Variables | Valores
+# horas_de_juego        | 150, 350
+#
+# Salida: 150, 150
+#
 
 # 13. Ahora reasignamos la variable global con el valor que retorna la función.
 horas_de_juego = 150
@@ -199,6 +205,12 @@ print(horas_de_juego)
 horas_de_juego = mostrar_horas_local()
 print(horas_de_juego)
 
+#Variables | Valores
+#          | 150, 350
+#        |
+# Salida: 150, 150, 350, 350
+#
+
 
 # 14. Una función que primero muestra la cantidad de seguidores en tu canal, luego llama a otra función para mostrar "Likes".
 def mostrar_seguidores():
@@ -210,6 +222,11 @@ def mostrar_likes():
     print("Likes: 120")
 
 mostrar_seguidores()
+
+#Variables | Valores
+# no hay variables | 
+# Salida: likes: 120, seguidores: 300, finalizando conteo 
+#
 
 
 # 15. Función que muestra "Reproducciones" de un tema musical y recibe un valor de otra función,
@@ -226,3 +243,9 @@ def calcular_incremento():
 
 b = mostrar_reproducciones()
 print(b)
+
+#Variables | Valores
+#a         | 4
+#b         | 1 
+# Salida: reproduccion: 5000
+#Incremento calculado: 1, 4
