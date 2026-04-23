@@ -19,9 +19,9 @@ datos_carlos()
 
 # 3. Crear función que reciba "nombre" o "puntaje" e imprima solo esos valores
 
-def recibir_datos(datos):
-   ingresarNombre = input("Ingrese un nombre: ")
-   for i in datos:
-        if ingresarNombre == datos["nombre"]:
-            print(f"{'nombre'} obtuvo {'puntaje'} puntos")
-recibir_datos(datos)
+def recibir_datos(nombre):
+    ingresar = input("Ingrese el dato: ")
+    for i in datos:
+     if ingresar == i["nombre"]:
+        print(f"{i['nombre']} obtuvo {i['puntaje']} puntos")
+recibir_datos("nombre")
