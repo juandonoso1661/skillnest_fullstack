@@ -32,7 +32,7 @@ def sumatoria_menos_longitud(sumatoria):
    print(f"Total = {total}, longitud = {longitud}")
    return resultado
 
-def ejercicio(retornar):
+def ejercicio_3(retornar):
    sumatoria_menos_longitud([10, 5, 3, 7])
    print(f"El resultado del retorno es: {retornar}")
 # Suma total = 25, longitud = 4, debe retornar: 21
@@ -40,28 +40,43 @@ def ejercicio(retornar):
 
 # Ajusta visualizaciones
 def valores_multiplicados_segundo(lista):
-    print(len(lista))
-    if len(lista) < 2:
-      return sum(lista) - len(lista)
+    if len (lista) < 2:
+       print(len(lista))
+       return []
+    else:
+       segEle = lista[1]
+       nuevaLista = []
+       for i in lista:
+          nuevaLista.append(i * segEle)
+          long = len(nuevaLista)
+          print(long)
+          return nuevaLista
 
-    valores_multiplicados_segundo([100, 3, 50, 20])
+def ejercicio_4():
+    result1 = valores_multiplicados_segundo([100, 3, 50, 20])
+    print(result1)
+    print()
 # Imprime: 4 y retorna: [300, 9, 150, 60]
+result2 = valores_multiplicados_segundo([100])
+print(result2)
 
-valores_multiplicados_segundo([100])
 # Imprime: 1 y retorna: []
 
 
 # Genera precio fijo
-def valor_multiplicado_longitud(lista):
-   print(len(lista))
-   if len(lista) < 2:
-        return []
-   return [x * lista[1] for x in lista]
+def valor_multiplicado_longitud(a, b):
+   multList = []
+   for i in range(0, b):
+      multList.append(a * b)
+      return multList
 
-valor_multiplicado_longitud(5, 2)
+def ejercicio_5():
+   result1 = valor_multiplicado_longitud(5, 2)
+   print(f"Resultado 1: {result1}")
 # Debe retornar: [10, 10]
 
-valor_multiplicado_longitud(7, 5)
+result2 = valor_multiplicado_longitud(7, 5)
+print(f"Resutado 2:{result2}")
 # Debe retornar: [35, 35, 35, 35, 35]
 
 def limpiar_consola():
@@ -84,16 +99,16 @@ while continuar:
         multiplica_por_2()
     elif opcion == "2":
         print("\nEjecutando ejercicio 2:")
-        
+        ejercicio_2()
     elif opcion == "3":
        print("n\Ejecutando ejercicio 3:")
-       
+       ejercicio_3() 
     elif opcion == "4":
        print("n\Ejecutando ejercicio 4:")
-       
+       ejercicio_4()
     elif opcion == "5":
        print("n\Ejecutando ejercicio 5:")
-       
+       ejercicio_5()
     elif opcion == "0":
         print("Saliendo...")
         continuar = False
