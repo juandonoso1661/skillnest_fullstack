@@ -28,3 +28,18 @@ Crear una clase estudiante, y asignarle los siguientes atributos:
 -Crear 3 insancias para la clase con distintos estudiantes.
 -Imprimir el nombre y apellido concatenado + escialidad.
 '''
+class Estudiantes:
+    def __init__(self, rut, nombre, apellido, especialidad, fecha_nac):
+        self.rut = rut
+        self.nombre = nombre
+        self.apellido = apellido
+        self.especialidad = especialidad
+        self.fecha_nac = fecha_nac
+
+juan = Estudiantes("22735117-9", "juan", "Donoso", "Programador", "06/05/2008")
+enrique = Estudiantes("22968334-k", "Enrique", "Rojas", "ingeniero", "08/07/1814")
+victor = Estudiantes("22567899-0", "Victor", "roberto", "electricista", "04/01/1997")
+
+print(juan.nombre + " " + juan.apellido + " " + juan.especialidad)
+print(enrique.nombre + " " + enrique.apellido + " " + enrique.especialidad)
+print(victor.nombre + " " + victor.apellido + " " + victor.especialidad)
