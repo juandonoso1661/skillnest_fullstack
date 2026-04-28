@@ -42,3 +42,4 @@ print(f"El nuevo límite de crédito es: {miyagi.limite_credito}")
 
 print(miyagi.saldo_pagar) #Imprime: 350
 print(daniel.saldo_pagar) #Imprime: 45
+
