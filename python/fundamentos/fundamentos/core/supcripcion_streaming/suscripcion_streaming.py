@@ -67,7 +67,7 @@ for i in range(3):
     usuarios.append(usuario)
 
 
-#MENU WHILE 
+#MENU WHILE
 
 while True:
 
