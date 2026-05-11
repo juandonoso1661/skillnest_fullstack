@@ -27,7 +27,7 @@ class UsuarioStreaming:
 
    def agregar_a_lista(self, titulo):
        """Agrega un contenido a la lista de reproducción del usuario."""
-       self.agregar_a_lista.append(titulo)
+       self.lista_reproduccion.append(titulo)
        print(f"{titulo} se a agregado a tu lista")
        
 
@@ -52,11 +52,67 @@ class UsuarioStreaming:
        print(f"Nombre: {self.nombre}")
        print(f"Email: {self.email}")
        print(f"Suscripción: {self.suscripcion}")
+
        if len(self.lista_reproduccion) == 0:
            print("La lista de producción está vacía.")
        else:
-           print(f"Lista de produccion: \n- {"\n".join(self.lista_reproduccion)}")
+           print("Lista de produccion: ")
+           for titulo in self.lista_reproduccion:
+               print("-", titulo)
+
+usuarios = []
+
+for i in range(3):
+    print(f"\nRegistro del usuario {i+1}")
+
+    nombre = input("Ingrese nombre: ")
+    email = input("Ingrese su email: ")
+    suscripcion = input("Ingrese su tipo de suscripcion: ")
+
+    usuario = UsuarioStreaming(nombre, email, suscripcion)
+    usuarios.append(usuario)
 
 #Todos los valores que se deban registrar debe ser con input
 #Añadir un menu while para llamar amlos metodos. 
 # (Menú de selección)
+
+while True:
+
+    print("\n====== MENÚ STREAMING ======")
+    print("1. Agregar contenido")
+    print("2. Ver contenido")
+    print("3. Cambiar suscripción")
+    print("4. Mostrar información")
+    print("5. Salir")
+
+    opcion = input("Seleccione una opción: ")
+
+    if opcion == "5":
+        print("Saliendo del programa...")
+        break
+
+    numero_usuario = int(input("Seleccione usuario (1-3): ")) - 1
+
+    if numero_usuario < 0 or numero_usuario >= len(usuarios):
+        print("Usuario inválido.")
+        continue
+
+    usuario = usuarios[numero_usuario]
+
+    if opcion == "1":
+        titulo = input("Ingrese título: ")
+        usuario.agregar_a_lista(titulo)
+
+    elif opcion == "2":
+        titulo = input("Ingrese título a reproducir: ")
+        usuario.ver_contenido(titulo)
+
+    elif opcion == "3":
+        nueva = input("Nueva suscripción: ")
+        usuario.cambiar_suscripcion(nueva)
+
+    elif opcion == "4":
+        usuario.mostrar_info_usuario()
+
+    else:
+        print("Opción inválida.")
