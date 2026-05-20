@@ -1,16 +1,55 @@
-* {
+*{
     padding: 0;
     margin: 0;
     box-sizing: border-box;
 }
 
-body {
-     font-family: "Nunito", sans-serif;
+body{
+    font-family: "Nunito", sans-serif;
 }
 
-.primera-columna {
-    display: flex;
-    justify-content: center;
-    margin-top: 200px;
+/* NO uses .container porque Bootstrap la usa */
+
+.mi-tabla{
+    width: 900px;
+    margin: 50px auto;
+}
+
+table{
+    width: 100%;
+    border-collapse: collapse;
+}
+
+/* Bordes */
+
+table,
+th,
+td{
     border: 2px solid black;
+}
+
+tr {
+    border: 2px solid black;
+}
+
+/* Espaciado */
+
+th,
+td{
+    padding: 15px;
+    text-align: center;
+}
+
+/* Encabezados */
+
+th{
+    background-color: lightgray;
+}
+
+/* Iconos */
+
+.botones-Acciones i{
+    font-size: 20px;
+    margin-right: 10px;
+    cursor: pointer;
 }
