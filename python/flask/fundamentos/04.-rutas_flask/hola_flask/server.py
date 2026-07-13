@@ -10,7 +10,5 @@ def hola_mundo():
 def exito():
     return "¡Éxito!"
 
-
-
 if __name__ == "__main__":
     app.run(debug=True)
