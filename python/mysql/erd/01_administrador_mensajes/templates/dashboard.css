@@ -1,55 +1,100 @@
-*{
+* {
     padding: 0;
     margin: 0;
     box-sizing: border-box;
 }
 
-body{
+body {
     font-family: "Nunito", sans-serif;
 }
 
-/* NO uses .container porque Bootstrap la usa */
 
-.mi-tabla{
-    width: 900px;
-    margin: 50px auto;
+.topbar {
+    width: 100%;
+    height: 60px;
+    background-color: #efefef;
+
+    display: flex;
+    align-items: center;
+
+    padding: 10px;
+    gap: 10px;
+
+    border-bottom: 2px solid black;
 }
 
-table{
+.iconos-nav {
+    display: flex;
+    gap: 10px;
+    font-size: 22px;
+}
+
+.topbar input {
+    width: 500px;
+    padding: 5px;
+
+    border: 2px solid black;
+}
+
+.busqueda {
+    width: 50px;
+    height: 25px;
+
+    border: 2px solid black;
+    border-radius: 20px;
+
+    background-color: white;
+}
+
+/* Contenedor */
+
+.contenedor {
+    width: 700px;
+    margin: 40px auto;
+}
+
+/* Botón */
+
+.boton-container {
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 10px;
+}
+
+.boton-container button {
+    padding: 8px 12px;
+    border: 2px solid black;
+    background-color: white;
+    cursor: pointer;
+}
+
+/* Tabla */
+
+table {
     width: 100%;
     border-collapse: collapse;
+    background-color: white;
 }
-
-/* Bordes */
-
-table,
-th,
-td{
-    border: 2px solid black;
-}
-
-tr {
-    border: 2px solid black;
-}
-
-/* Espaciado */
 
 th,
-td{
-    padding: 15px;
-    text-align: center;
+td {
+    border: 2px solid black;
+    padding: 10px;
+    text-align: left;
 }
 
-/* Encabezados */
-
-th{
-    background-color: lightgray;
+th {
+    background-color: #d3d3d3;
 }
 
 /* Iconos */
 
-.botones-Acciones i{
+.acciones {
+    text-align: center;
+}
+
+.acciones i {
     font-size: 20px;
-    margin-right: 10px;
+    margin-right: 8px;
     cursor: pointer;
 }

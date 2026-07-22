@@ -18,26 +18,52 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
     <!-- link de bootstrap icons -->
-     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
     <title>Document</title>
 </head>
 
 <body>
-    <div class="mi-tabla">
+
+
+
+    <div class="topbar">
+
+        <div class="iconos-nav">
+            <i class="bi bi-arrow-left"></i>
+            <i class="bi bi-arrow-right"></i>
+            <i class="bi bi-x-lg"></i>
+            <i class="bi bi-house-door-fill"></i>
+        </div>
+
+        <input type="text" value="http://localhost/dashboard/adm">
+
+        <button class="busqueda"></button>
+
+    </div>
+
+    <!-- Contenido -->
+
+    <div class="contenedor">
+
+        <div class="boton-container">
+            <button>Nuevo Usuario</button>
+        </div>
+
         <table>
+
             <tr>
-                <td>Nombre</td>
-                <td>Email</td>
-                <td>Tipo de usuario</td>
-                <td>Acciones</td>
+                <th>Nombre</th>
+                <th>E-mail</th>
+                <th>Tipo Usuario</th>
+                <th>Acciones</th>
             </tr>
 
             <tr>
                 <td>Patricia</td>
-                <td>patricia@condindojo.com</td>
+                <td>patricia@codingdojo.com</td>
                 <td>Admin</td>
-                
-                <td class="botones-Acciones">
+
+                <td class="acciones">
                     <i class="bi bi-pencil-fill"></i>
                     <i class="bi bi-trash"></i>
                     <i class="bi bi-envelope"></i>
@@ -46,31 +72,32 @@
 
             <tr>
                 <td>Andrea</td>
-                <td>andrea@condindojo.com</td>
+                <td>andrea@codingdojo.com</td>
                 <td>Usuario</td>
-                
-                <td class="botones-Acciones">
+
+                <td class="acciones">
                     <i class="bi bi-pencil-fill"></i>
                     <i class="bi bi-trash"></i>
                     <i class="bi bi-envelope"></i>
                 </td>
             </tr>
-
 
             <tr>
                 <td>Katya</td>
-                <td>katya@codindojo.com</td>
+                <td>katya@codingdojo.com</td>
                 <td>Usuario</td>
 
-                <td class="botones-Acciones">
+                <td class="acciones">
                     <i class="bi bi-pencil-fill"></i>
                     <i class="bi bi-trash"></i>
                     <i class="bi bi-envelope"></i>
                 </td>
             </tr>
+
         </table>
 
     </div>
+
 </body>
 
 </html>
