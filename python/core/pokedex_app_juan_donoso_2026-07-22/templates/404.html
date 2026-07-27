@@ -1,0 +1,23 @@
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+
+</head>
+
+<body>
+
+    <div class="error">
+
+        <h1>¡Oh no!</h1>
+
+        <p>{{ mensaje }}</p>
+
+        <h2>Pokémon no encontrado</h2>
+
+        <p>Tal vez este Pokémon aún no ha sido descubierto o escribiste mal su nombre.</p>
+
+        <a href="/pokemon">Volver a la Pokédex</a>
+
+    </div>
+
+</body>
+
+</html>

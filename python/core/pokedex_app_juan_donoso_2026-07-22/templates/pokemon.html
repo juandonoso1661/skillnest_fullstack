@@ -1,20 +1,127 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <!-- link de css -->
-    <link rel="stylesheet" href="{{ url_for('static', filname='css/style.css') }}">
-</head>
-<body>
-    <div class="titulo">
-        <h1>Pokedéx</h1>
-        <img src="" alt="">
-        <p>todos los pokemones</p>
+    <title>Pokédex</title>
 
-        <button>ver todos</button>
-        <button>Ver los 5 primeros</button>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+    <div class="titulo">
+        <img src="{{ url_for('static', filename='img/pokeball.png') }}" alt="Pokébola">
+        <h1>Pokédex</h1>
     </div>
+
+    <p class="subtitulo">
+        {% if titulo %}
+            {{ titulo }}
+        {% else %}
+            Todos los Pokémon
+        {% endif %}
+    </p>
+
+    <div class="contenedor">
+
+        {% for pokemon in pokemons %}
+
+        <div class="card">
+
+            <div class="numero">
+                #{{ pokemon.id }}
+            </div>
+
+            <img src="{{ url_for('static', filename='img/' + pokemon.imagen) }}" alt="{{ pokemon.nombre }}">
+
+            <h2>{{ pokemon.nombre }}</h2>
+
+            <!-- Tipos -->
+
+            <div class="tipos">
+
+                {% if "Planta" in pokemon.tipo %}
+                <span class="tipo planta">🌿 Planta</span>
+                {% endif %}
+
+                {% if "Veneno" in pokemon.tipo %}
+                <span class="tipo veneno">☠️ Veneno</span>
+                {% endif %}
+
+                {% if "Fuego" in pokemon.tipo %}
+                <span class="tipo fuego">🔥 Fuego</span>
+                {% endif %}
+
+                {% if "Agua" in pokemon.tipo %}
+                <span class="tipo agua">💧 Agua</span>
+                {% endif %}
+
+                {% if "Eléctrico" in pokemon.tipo %}
+                <span class="tipo electrico">⚡ Eléctrico</span>
+                {% endif %}
+
+                {% if "Normal" in pokemon.tipo %}
+                <span class="tipo normal">⭐ Normal</span>
+                {% endif %}
+
+                {% if "Fantasma" in pokemon.tipo %}
+                <span class="tipo fantasma">👻 Fantasma</span>
+                {% endif %}
+
+                {% if "Roca" in pokemon.tipo %}
+                <span class="tipo roca">🪨 Roca</span>
+                {% endif %}
+
+                {% if "Tierra" in pokemon.tipo %}
+                <span class="tipo tierra">🌎 Tierra</span>
+                {% endif %}
+
+                {% if "Hada" in pokemon.tipo %}
+                <span class="tipo hada">🧚 Hada</span>
+                {% endif %}
+
+            </div>
+
+            <!-- Barra de poder -->
+
+            <div class="dato">
+
+                <strong>⚡ Poder</strong>
+
+                <div class="barra">
+                    <div class="progreso"
+                        style="width: {{ pokemon.poder if pokemon.poder <= 100 else 100 }}%;">
+                    </div>
+                </div>
+
+                <span>{{ pokemon.poder }}</span>
+
+            </div>
+
+            <!-- Datos -->
+
+            <div class="datos">
+
+                <div>
+                    <strong>Altura</strong>
+                    <p>{{ pokemon.altura }}</p>
+                </div>
+
+                <div>
+                    <strong>Peso</strong>
+                    <p>{{ pokemon.peso }}</p>
+                </div>
+
+            </div>
+
+        </div>
+
+        {% endfor %}
+
+    </div>
+
 </body>
+
 </html>
