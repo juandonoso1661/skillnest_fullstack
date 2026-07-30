@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Visualización de Datos - Plataformas Digitales</title>
+    <!-- Vinculación del archivo CSS estático -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+    <div class="contenedor">
+        <h1>Plataformas Digitales</h1>
+
+        <!-- Verificamos si la lista tiene datos -->
+        {% if plataformas %}
+            <table>
+                <thead>
+                    <tr>
+                        <th>Nombre</th>
+                        <th>Usuarios</th>
+                        <th>Año de Fundación</th>
+                        <th>País</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Recorremos la lista de diccionarios -->
+                    {% for plataforma in plataformas %}
+                        <tr>
+                            <td><strong>{{ plataforma.nombre }}</strong></td>
+                            <td>{{ plataforma.usuarios }}</td>
+                            <td>{{ plataforma.fundado }}</td>
+                            <td>{{ plataforma.pais }}</td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        {% else %}
+            <!-- Mensaje si la lista de datos está vacía -->
+            <p class="mensaje-vacio">No hay datos de plataformas disponibles para mostrar.</p>
+        {% endif %}
+    </div>
+
+</body>
+</html>
