@@ -3,42 +3,128 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Visualización de Datos - Plataformas Digitales</title>
-    <!-- Vinculación del archivo CSS estático -->
+    <title>Plataformas Digitales</title>
+
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 <body>
 
     <div class="contenedor">
+
         <h1>Plataformas Digitales</h1>
 
-        <!-- Verificamos si la lista tiene datos -->
+        <p class="subtitulo">
+            Visualización de datos de las principales plataformas digitales
+        </p>
+
+        <!-- Caja de filtros (solo diseño) -->
+        <div class="filtros">
+
+            <h3>Filtros y Ordenamiento</h3>
+
+            <div class="opciones">
+
+                <div class="grupo">
+                    <label for="pais">Filtrar por país:</label>
+                    <select id="pais">
+                        <option>Todos los países</option>
+                        <option>EE.UU.</option>
+                        <option>Suecia</option>
+                        <option>China</option>
+                    </select>
+                </div>
+
+                <div class="grupo">
+                    <label for="orden">Ordenar por:</label>
+                    <select id="orden">
+                        <option>Nombre</option>
+                        <option>Usuarios</option>
+                        <option>Año</option>
+                    </select>
+                </div>
+
+                <div class="grupo">
+                    <label for="direccion">Dirección:</label>
+                    <select id="direccion">
+                        <option>Ascendente</option>
+                        <option>Descendente</option>
+                    </select>
+                </div>
+
+            </div>
+
+        </div>
+
         {% if plataformas %}
-            <table>
-                <thead>
-                    <tr>
-                        <th>Nombre</th>
-                        <th>Usuarios</th>
-                        <th>Año de Fundación</th>
-                        <th>País</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <!-- Recorremos la lista de diccionarios -->
-                    {% for plataforma in plataformas %}
-                        <tr>
-                            <td><strong>{{ plataforma.nombre }}</strong></td>
-                            <td>{{ plataforma.usuarios }}</td>
-                            <td>{{ plataforma.fundado }}</td>
-                            <td>{{ plataforma.pais }}</td>
-                        </tr>
-                    {% endfor %}
-                </tbody>
-            </table>
+
+        <table>
+
+            <thead>
+
+                <tr>
+                    <th>Nombre</th>
+                    <th>Usuarios</th>
+                    <th>Año Fundación</th>
+                    <th>País</th>
+                    <th>Detalles</th>
+                </tr>
+
+            </thead>
+
+            <tbody>
+
+                {% for plataforma in plataformas %}
+
+                <tr>
+
+                    <td class="nombre-plataforma">
+                        <img src="{{ url_for('static', filename='img/' + plataforma.icono)}}" alt="{{ plataforma.nombre }}" class="icono">
+                        <strong>{{ plataforma.nombre }}</strong>
+                    </td>
+
+                    <td>
+                        <span class="badge">
+                            {{ plataforma.usuarios }}
+                        </span>
+                    </td>
+
+                    <td>{{ plataforma.fundado }}</td>
+
+                    <td>
+                        <span class="pais">
+                            {{ plataforma.pais }}
+                        </span>
+                    </td>
+
+                    <td>
+                        <button class="boton">i</button>
+                    </td>
+
+                </tr>
+
+                {% endfor %}
+
+            </tbody>
+
+        </table>
+
+        <p class="contador">
+            Mostrando {{ plataformas|length }} plataformas
+        </p>
+
         {% else %}
-            <!-- Mensaje si la lista de datos está vacía -->
-            <p class="mensaje-vacio">No hay datos de plataformas disponibles para mostrar.</p>
+
+        <p class="mensaje-vacio">
+            No hay datos de plataformas disponibles para mostrar.
+        </p>
+
         {% endif %}
+
+        <footer>
+            <p>Visualización de datos desarrollada con Flask.</p>
+            <p>Los datos mostrados son ficticios para fines educativos.</p>
+        </footer>
+
     </div>
 
 </body>
