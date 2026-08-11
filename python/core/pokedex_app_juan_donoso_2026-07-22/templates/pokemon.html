@@ -4,6 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<<<<<<< Updated upstream
     <title>Pokédex</title>
 
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
@@ -122,6 +123,43 @@
 
     </div>
 
+=======
+    <title>Pokédex - {{ titulo }}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <header>
+        <h1>🔴 Pokédex</h1>
+        <nav>
+            <a href="/pokemon">Ver todos</a> |
+            <a href="/pokemon/cantidad/5">Ver 5 primeros</a>
+        </nav>
+    </header>
+
+    <main>
+        <h2>{{ titulo }}</h2>
+        
+        <div class="pokemon-grid">
+            {% for p in pokemon_list %}
+            <div class="pokemon-card">
+                <img src="{{ url_for('static', filename='images/' + p.imagen) }}" 
+                     alt="{{ p.nombre }}"
+                     onerror="this.onerror=null; this.src='/static/images/pokeball.png.webp';">
+                <div class="info">
+                    <span class="id">#{{ p.id }}</span>
+                    <h3>{{ p.nombre }}</h3>
+                    <span class="tipo">{{ p.tipo }}</span>
+                    <div class="stats">
+                        <p><strong>Poder:</strong> {{ p.poder }}</p>
+                        <p><strong>Altura:</strong> {{ p.altura }}</p>
+                        <p><strong>Peso:</strong> {{ p.peso }}</p>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </main>
+>>>>>>> Stashed changes
 </body>
 
 </html>

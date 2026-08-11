@@ -1,0 +1,200 @@
+/* ==========================================
+   Configuración general
+   ========================================== */
+
+body {
+    background-color: #f4f6f8;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+
+/* ==========================================
+   Barra de navegación
+   ========================================== */
+
+.navbar {
+    padding: 15px 0;
+}
+
+.navbar-brand {
+    font-size: 22px;
+}
+
+.nav-link {
+    font-weight: 500;
+}
+
+.nav-link:hover {
+    text-decoration: underline;
+}
+
+
+/* ==========================================
+   Hero / Encabezado
+   ========================================== */
+
+.hero {
+    background: linear-gradient(135deg,
+            #198754,
+            #20c997);
+
+    padding: 70px 20px;
+}
+
+.hero h1 {
+    font-size: 48px;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+.hero p {
+    font-size: 20px;
+    margin-bottom: 0;
+}
+
+
+/* ==========================================
+   Tarjetas de frutas
+   ========================================== */
+
+.fruta-card {
+    border: none;
+    border-radius: 15px;
+    overflow: hidden;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.fruta-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15) !important;
+}
+
+
+/* ==========================================
+   Imágenes de frutas
+   ========================================== */
+
+.fruta-card img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+}
+
+
+/* ==========================================
+   Títulos de las tarjetas
+   ========================================== */
+
+.fruta-card .card-title {
+    font-weight: bold;
+    font-size: 22px;
+}
+
+.fruta-card .card-text {
+    color: #666;
+    line-height: 1.5;
+}
+
+
+/* ==========================================
+   Precio
+   ========================================== */
+
+.text-success {
+    font-size: 20px;
+}
+
+
+/* ==========================================
+   Formularios
+   ========================================== */
+
+.form-control {
+    border-radius: 8px;
+}
+
+.form-control:focus {
+    border-color: #198754;
+    box-shadow: 0 0 0 0.2rem rgba(25, 135, 84, 0.15);
+}
+
+
+/* ==========================================
+   Botones
+   ========================================== */
+
+.btn {
+    border-radius: 8px;
+    padding: 10px 18px;
+    font-weight: bold;
+}
+
+.btn-primary {
+    background-color: #198754;
+    border-color: #198754;
+}
+
+.btn-primary:hover {
+    background-color: #157347;
+    border-color: #157347;
+}
+
+
+/* ==========================================
+   Tarjetas generales
+   ========================================== */
+
+.card {
+    border-radius: 15px;
+    border: none;
+}
+
+.card-header {
+    font-weight: bold;
+}
+
+
+/* ==========================================
+   Tabla del checkout
+   ========================================== */
+
+.table img {
+    object-fit: cover;
+}
+
+.table th {
+    font-weight: bold;
+}
+
+.table td {
+    vertical-align: middle;
+}
+
+
+/* ==========================================
+   Diseño responsive
+   ========================================== */
+
+@media (max-width: 768px) {
+
+    .hero {
+        padding: 50px 15px;
+    }
+
+    .hero h1 {
+        font-size: 36px;
+    }
+
+    .hero p {
+        font-size: 17px;
+    }
+
+    .navbar-brand {
+        font-size: 18px;
+    }
+
+    .fruta-card img {
+        height: 200px;
+    }
+
+}
