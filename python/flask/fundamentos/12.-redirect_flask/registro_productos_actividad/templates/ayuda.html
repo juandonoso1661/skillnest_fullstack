@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+Inicio
+</a>
+|
+<a href="{{ url_for('ayuda') }}">
+    Ayuda
+</a>
+
+
+</nav>
+
+
+<hr>
+
+
+
+
+<h1>Ayuda</h1>
+
+
+
+
+<h2>¿Qué es una solicitud POST?</h2>
+
+
+<p>
+    POST permite enviar información desde un formulario
+    hacia el servidor.
+</p>
+
+
+
+
+<h2>¿Qué es una solicitud GET?</h2>
+
+
+<p>
+    GET se utiliza para solicitar y mostrar información
+    de una página o recurso.
+</p>
+
+
+
+
+<h2>¿Para qué sirve redirect()?</h2>
+
+
+<p>
+    redirect() permite enviar al navegador hacia otra ruta
+    después de procesar una solicitud.
+</p>
+
+
+
+
+<h2>¿Por qué request.form no está disponible después
+    de la redirección?</h2>
+
+
+<p>
+    Porque los datos de request.form pertenecen a la solicitud
+    POST original. Después de redirect() se realiza una nueva
+    solicitud GET.
+</p>
+
+
+
+
+<br>
+
+
+<a href="{{ url_for('index') }}">
+    Volver al inicio
+</a>
+
+
+</body>
+
+
+</html>
