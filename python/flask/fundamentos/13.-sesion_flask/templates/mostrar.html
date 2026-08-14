@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Usuario Registrado</title>
+</head>
+<body>
+    <h1>¡Usuario registrado con éxito!</h1>
+    <hr>
+
+    <!-- Jinja2 accede directamente al objeto session -->
+    <h3>Nombre: {{ session["nombre_usuario"] }}</h3>
+    <h3>E-mail: {{ session["email_usuario"] }}</h3>
+    <h3>Ciudad: {{ session["ciudad_usuario"] }}</h3>
+
+    <hr>
+    <a href="{{ url_for('perfil') }}">Ver mi Perfil</a> | 
+    <a href="{{ url_for('index') }}">Volver al formulario</a>
+</body>
+</html>

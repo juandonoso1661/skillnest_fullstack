@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Mi Perfil</title>
+</head>
+<body>
+    <h1>============================</h1>
+    <h1>Perfil de usuario</h1>
+    
+    <p><strong>Nombre:</strong> {{ session["nombre_usuario"] }}</p>
+    <p><strong>Email:</strong> {{ session["email_usuario"] }}</p>
+    <p><strong>Ciudad:</strong> {{ session["ciudad_usuario"] }}</p>
+    
+    <h1>============================</h1>
+
+    <a href="{{ url_for('index') }}">[Volver al Inicio]</a>
+</body>
+</html>
