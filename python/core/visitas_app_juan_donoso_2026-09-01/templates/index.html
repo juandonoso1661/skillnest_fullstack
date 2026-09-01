@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Contador de visitas</title>
+</head>
+
+<body>
+
+    <h1>Contador de visitas</h1>
+
+    <h2>
+        Has visitado esta página {{ visitas }} veces.
+    </h2>
+
+    <!-- Agregar 2 visitas -->
+    <a href="/agregar_dos">
+        <button>Agregar 2 visitas</button>
+    </a>
+
+    <!-- Reiniciar contador -->
+    <a href="/reiniciar">
+        <button>Reiniciar contador</button>
+    </a>
+
+    <hr>
+
+    <h2>Agregar visitas</h2>
+
+    <form action="/agregar" method="POST">
+
+        <label for="numero">
+            Número de visitas:
+        </label>
+
+        <input
+            type="number"
+            name="numero"
+            min="1"
+            required
+        >
+
+        <button type="submit">
+            Agregar
+        </button>
+
+    </form>
+
+    <p>
+        Has reiniciado el contador
+        {{ reinicios }} veces.
+    </p>
+
+    <hr>
+
+    <!-- Destruir sesión -->
+    <a href="/destruir_sesion">
+        <button>Destruir sesión</button>
+    </a>
+
+</body>
+
+</html>
