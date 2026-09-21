@@ -4,10 +4,7 @@
 <head>
     <meta charset="UTF-8">
 
-    <meta
-        name="viewport"
-        content="width=device-width, initial-scale=1.0"
-    >
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>Mascotas</title>
 </head>
@@ -18,48 +15,70 @@
 
     {% if todas_mascotas %}
 
-        {% for una_mascota in todas_mascotas %}
+    {% for una_mascota in todas_mascotas %}
 
-            <div>
+    <div>
 
-                <p>
-                    <b>ID:</b>
-                    {{ una_mascota.id }}
-                    <br>
+        <p>
+            <b>ID:</b>
+            {{ una_mascota.id }}
+            <br>
 
-                    <b>Nombre:</b>
-                    {{ una_mascota.nombre }}
-                    <br>
+            <b>Nombre:</b>
+            {{ una_mascota.nombre }}
+            <br>
 
-                    <b>Tipo:</b>
-                    {{ una_mascota.tipo }}
-                    <br>
+            <b>Tipo:</b>
+            {{ una_mascota.tipo }}
+            <br>
 
-                    <b>Color:</b>
-                    {{ una_mascota.color }}
-                    <br>
+            <b>Color:</b>
+            {{ una_mascota.color }}
+            <br>
 
-                    <b>Creado:</b>
-                    {{ una_mascota.created_at }}
-                    <br>
+            <b>Creado:</b>
+            {{ una_mascota.created_at }}
+            <br>
 
-                    <b>Actualizado:</b>
-                    {{ una_mascota.updated_at }}
-                </p>
+            <b>Actualizado:</b>
+            {{ una_mascota.updated_at }}
+        </p>
 
-                <hr>
+        <hr>
 
-            </div>
+    </div>
 
-        {% endfor %}
+    {% endfor %}
 
     {% else %}
 
-        <p>
-            No existen mascotas registradas.
-        </p>
+    <p>
+        No existen mascotas registradas.
+    </p>
 
     {% endif %}
+
+    <hr>
+
+    <h2>Agregar una mascota</h2>
+
+    <form action="/crear_mascota" method="POST">
+
+        <label>Nombre:</label>
+        <input type="text" name="nombre" required>
+        <br>
+
+        <label>Tipo:</label>
+        <input type="text" name="tipo" required>
+        <br>
+
+        <label>Color:</label>
+        <input type="text" name="color" required>
+        <br>
+
+        <input type="submit" value="Agregar Mascota">
+
+    </form>
 
 </body>
 

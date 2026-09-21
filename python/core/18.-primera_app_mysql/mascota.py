@@ -51,3 +51,14 @@ class Mascota:
             return cls(resultados[0])
 
         return None
+    @classmethod
+    def save(cls, datos):
+        query = """
+        INSERT INTO mascotas
+        (nombre, tipo, color, created_at, updated_at)
+        VALUES
+        (%(nombre)s, %(tipo)s, %(color)s, NOW(), NOW());
+        """
+        return connectToMySQL(
+           "primera_flask"
+        ).query_db(query, datos)
