@@ -4,7 +4,6 @@ import pymysql.cursors
 class MySQLConnection:
 
     def __init__(self, db):
-
         self.connection = pymysql.connect(
             host="localhost",
             user="root",
@@ -16,11 +15,8 @@ class MySQLConnection:
         )
 
     def query_db(self, query, data=None):
-
         with self.connection.cursor() as cursor:
-
             try:
-
                 cursor.execute(query, data)
 
                 if query.strip().lower().startswith("select"):
@@ -33,17 +29,13 @@ class MySQLConnection:
                     return None
 
             except Exception as e:
-
                 print("Something went wrong:")
                 print(e)
-
                 return False
 
             finally:
-
                 self.connection.close()
 
 
 def connectToMySQL(db):
-
     return MySQLConnection(db)

@@ -10,7 +10,7 @@
 
     <h1>Lista de Usuarios</h1>
 
-    <a href="/usuarios/nuevo">Crear nuevo usuario</a>
+    <a href="{{ url_for('nuevo_usuario') }}">Crear nuevo usuario</a>
 
     <table border="1">
         <thead>
@@ -22,7 +22,6 @@
                 <th>Creado</th>
             </tr>
         </thead>
-
         <tbody>
             {% for usuario in usuarios %}
             <tr>
