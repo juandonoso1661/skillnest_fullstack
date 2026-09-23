@@ -3,33 +3,40 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Usuarios</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Todos los Usuarios</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
 </head>
 
 <body>
 
-    <h1>Lista de Usuarios</h1>
+    <div class="header-container">
+        <h1>Usuarios</h1>
+        <a href="{{ url_for('nuevo_usuario') }}">Nuevo Usuario</a>
+    </div>
 
-    <a href="{{ url_for('nuevo_usuario') }}">Crear nuevo usuario</a>
-
-    <table border="1">
+    <table class="tabla-usuarios">
         <thead>
             <tr>
-                <th>ID</th>
-                <th>Nombre</th>
-                <th>Apellido</th>
-                <th>Email</th>
-                <th>Creado</th>
+                <th>Id</th>
+                <th>Nombre Completo</th>
+                <th>E-mail</th>
+                <th>Fecha Creación</th>
+                <th>Acciones</th>
             </tr>
         </thead>
         <tbody>
-            {% for usuario in usuarios %}
+            {% for u in usuarios %}
             <tr>
-                <td>{{ usuario.id }}</td>
-                <td>{{ usuario.nombre }}</td>
-                <td>{{ usuario.apellido }}</td>
-                <td>{{ usuario.email }}</td>
-                <td>{{ usuario.created_at }}</td>
+                <td>{{ u.id }}</td>
+                <td>{{ u.nombre }} {{ u.apellido }}</td>
+                <td>{{ u.email }}</td>
+                <td>{{ u.created_at.strftime('%Y-%m-%d') if u.created_at else '' }}</td>
+                <td class="acciones">
+                    <a href="{{ url_for('mostrar_usuario', id=u.id) }}">Mostrar</a> |
+                    <a href="{{ url_for('editar_usuario', id=u.id) }}">Editar</a> |
+                    <a href="{{ url_for('borrar_usuario', id=u.id) }}">Borrar</a>
+                </td>
             </tr>
             {% endfor %}
         </tbody>

@@ -34,3 +34,32 @@ class Usuario:
             VALUES (%(nombre)s, %(apellido)s, %(email)s, NOW(), NOW());
         """
         return connectToMySQL("esquema_usuarios").query_db(query, data)
+
+    @classmethod
+    def get_by_id(cls, data):
+        query = """
+            SELECT id, nombre, apellido, email, created_at, updated_at
+            FROM usuarios
+            WHERE id = %(id)s;
+        """
+        resultado = connectToMySQL("esquema_usuarios").query_db(query, data)
+        if resultado:
+            return cls(resultado[0])
+        return None
+
+    @classmethod
+    def update(cls, data):
+        query = """
+            UPDATE usuarios
+            SET nombre = %(nombre)s, apellido = %(apellido)s, email = %(email)s, updated_at = NOW()
+            WHERE id = %(id)s;
+        """
+        return connectToMySQL("esquema_usuarios").query_db(query, data)
+
+    @classmethod
+    def delete(cls, data):
+        query = """
+            DELETE FROM usuarios
+            WHERE id = %(id)s;
+        """
+        return connectToMySQL("esquema_usuarios").query_db(query, data)
