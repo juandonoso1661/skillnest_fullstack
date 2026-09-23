@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de Estudiantes</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+<body>
+
+    <div class="header-container">
+        <h1>Estudiantes</h1>
+    </div>
+
+    <table class="tabla-usuarios">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Nombre</th>
+                <th>Correo</th>
+                <th>Fecha Creación</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for e in estudiantes %}
+            <tr>
+                <td>{{ e.id_estudiante }}</td>
+                <td>{{ e.nombre }}</td>
+                <td>{{ e.correo }}</td>
+                <td>{{ e.created_at.strftime('%Y-%m-%d') if e.created_at else '' }}</td>
+                <td class="acciones">
+                    <a href="{{ url_for('ver_estudiante', id_estudiante=e.id_estudiante) }}">Mostrar</a> |
+                    <a href="{{ url_for('editar_estudiante', id_estudiante=e.id_estudiante) }}">Editar</a> |
+                    <a href="{{ url_for('eliminar_estudiante', id_estudiante=e.id_estudiante) }}"
+                        onclick="return confirm('¿Estás seguro de eliminar este estudiante?');">Borrar</a>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+</body>
+
+</html>

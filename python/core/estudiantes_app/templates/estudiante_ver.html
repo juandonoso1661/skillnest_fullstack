@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ver Estudiante</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+<body>
+
+    <h1>Estudiante {{ estudiante.id_estudiante }}</h1>
+
+    <div class="card-detalle">
+        <p><strong>Nombre:</strong> {{ estudiante.nombre }}</p>
+        <p><strong>Correo:</strong> {{ estudiante.correo }}</p>
+        <p><strong>Fecha Creación:</strong> {{ estudiante.created_at.strftime('%Y-%m-%d') if estudiante.created_at else
+            '' }}</p>
+    </div>
+
+    <div class="acciones-detalle">
+        <a href="{{ url_for('editar_estudiante', id_estudiante=estudiante.id_estudiante) }}">Editar</a> |
+        <a href="{{ url_for('eliminar_estudiante', id_estudiante=estudiante.id_estudiante) }}"
+            onclick="return confirm('¿Estás seguro de eliminar este estudiante?');">Borrar</a>
+    </div>
+
+    <br>
+    <a href="{{ url_for('estudiantes') }}">Volver a Estudiantes</a>
+
+</body>
+
+</html>
