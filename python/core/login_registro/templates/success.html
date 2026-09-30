@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Bienvenido</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+<body>
+
+    <div class="success-container">
+
+        <div class="success-card">
+
+            <div class="success-icon">
+                ✓
+            </div>
+
+            <h1>
+                ¡Hola, {{ usuario.nombre }}!
+            </h1>
+
+            <p class="success-message">
+                Has iniciado sesión correctamente.
+            </p>
+
+            <div class="user-info">
+
+                <div class="info-item">
+                    <span>Nombre</span>
+                    <strong>{{ usuario.nombre }} {{ usuario.apellido }}</strong>
+                </div>
+
+                <div class="info-item">
+                    <span>Correo electrónico</span>
+                    <strong>{{ usuario.email }}</strong>
+                </div>
+
+            </div>
+
+            <a href="{{ url_for('logout') }}" class="logout">
+                Cerrar Sesión
+            </a>
+
+        </div>
+
+    </div>
+
+</body>
+
+</html>
