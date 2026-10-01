@@ -7,9 +7,11 @@ load_dotenv()
 
 
 class MySQLConnection:
+
     @staticmethod
     def connect_to_mysql():
-        connection = pymysql.connect(
+
+        return pymysql.connect(
             host=os.getenv("DB_HOST"),
             user=os.getenv("DB_USER"),
             password=os.getenv("DB_PASSWORD"),
@@ -17,18 +19,20 @@ class MySQLConnection:
             cursorclass=pymysql.cursors.DictCursor
         )
 
-        return connection
 
     @classmethod
     def query_db(cls, query, data=None):
+
         connection = cls.connect_to_mysql()
 
         try:
             with connection.cursor() as cursor:
+
                 cursor.execute(query, data or ())
 
-                if query.strip().lower().startswith("select"):
+                if query.lower().strip().startswith("select"):
                     result = cursor.fetchall()
+
                 else:
                     connection.commit()
                     result = cursor.lastrowid
@@ -36,9 +40,11 @@ class MySQLConnection:
             return result
 
         except Exception as e:
+
             connection.rollback()
-            print("Error en la consulta:", e)
+            print("Error SQL:", e)
             return False
 
         finally:
+
             connection.close()
