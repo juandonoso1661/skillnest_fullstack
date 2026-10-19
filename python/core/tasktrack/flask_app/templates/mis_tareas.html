@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TaskTrack - Mis Tareas</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+</head>
+
+<body class="bg-light">
+    <!-- Navegación -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark px-4">
+        <a class="navbar-brand fw-bold" href="/tareas">✔ TaskTrack</a>
+        <div class="navbar-nav ms-auto align-items-center">
+            <a class="nav-link active" href="/tareas">Mis Tareas</a>
+            <a class="nav-link" href="/categorias">Categorías</a>
+            <span class="text-white mx-3">Hola, {{ session['usuario_nombre'] }}</span>
+            <a class="btn btn-outline-light btn-sm" href="/logout">Cerrar Sesión</a>
+        </div>
+    </nav>
+
+    <div class="container my-4">
+        <div class="d-flex justify-content-between align-items-center mb-3">
+            <h2>Mis Tareas</h2>
+            <a href="/tareas/nueva" class="btn btn-primary">+ Nueva Tarea</a>
+        </div>
+
+        <!-- Tabla Principal de Tareas -->
+        <div class="card shadow-sm mb-4">
+            <div class="card-body p-0">
+                <table class="table table-hover align-middle mb-0">
+                    <thead class="table-light">
+                        <tr>
+                            <th>Título</th>
+                            <th>Categoría</th>
+                            <th>Prioridad</th>
+                            <th>Fecha Límite</th>
+                            <th>Estado</th>
+                            <th>Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for tarea in tareas %}
+                        <tr>
+                            <td class="fw-bold">{{ tarea.titulo }}</td>
+                            <td><span class="badge bg-secondary">{{ tarea.nombre_categoria }}</span></td>
+                            <td>
+                                {% if tarea.prioridad == 'Alta' %}
+                                <span class="badge bg-danger">Alta</span>
+                                {% elif tarea.prioridad == 'Media' %}
+                                <span class="badge bg-primary">Media</span>
+                                {% else %}
+                                <span class="badge bg-secondary">Baja</span>
+                                {% endif %}
+                            </td>
+                            <td>{{ tarea.fecha_limite }}</td>
+                            <td>
+                                {% if tarea.estado == 'Completada' %}
+                                <span class="badge bg-success">Completada</span>
+                                {% elif tarea.estado == 'En progreso' %}
+                                <span class="badge bg-info text-dark">En progreso</span>
+                                {% else %}
+                                <span class="badge bg-warning text-dark">Pendiente</span>
+                                {% endif %}
+                            </td>
+                            <td>
+                                <a href="/tareas/{{ tarea.id }}" class="btn btn-link btn-sm p-0">Ver</a> |
+                                <a href="/tareas/editar/{{ tarea.id }}" class="btn btn-link btn-sm p-0">Editar</a> |
+                                <a href="/tareas/borrar/{{ tarea.id }}" class="btn btn-link btn-sm text-danger p-0"
+                                    onclick="return confirm('¿Seguro deseas eliminar esta tarea?')">Borrar</a>
+                            </td>
+                        </tr>
+                        {% else %}
+                        <tr>
+                            <td colspan="6" class="text-center py-3 text-muted">No tienes tareas registradas.</td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <div class="row">
+            <!-- Próximas Tareas -->
+            <div class="col-md-7">
+                <div class="card shadow-sm">
+                    <div class="card-header bg-white fw-bold">Próximas tareas</div>
+                    <div class="card-body p-0">
+                        <table class="table mb-0">
+                            <thead>
+                                <tr>
+                                    <th>Título</th>
+                                    <th>Fecha Límite</th>
+                                    <th>Días restantes</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for tarea in tareas if tarea.estado != 'Completada' %}
+                                <tr>
+                                    <td>{{ tarea.titulo }}</td>
+                                    <td>{{ tarea.fecha_limite }}</td>
+                                    <td>
+                                        {% if tarea.dias_restantes < 0 %} <span class="text-danger fw-bold">
+                                            Vencida</span>
+                                            {% else %}
+                                            {{ tarea.dias_restantes }} días
+                                            {% endif %}
+                                    </td>
+                                </tr>
+                                {% else %}
+                                <tr>
+                                    <td colspan="3" class="text-center text-muted">No hay tareas pendientes.</td>
+                                </tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Resumen de Contadores -->
+            <div class="col-md-5">
+                <div class="card shadow-sm">
+                    <div class="card-header bg-white fw-bold">Resumen</div>
+                    <div class="card-body">
+                        <p class="mb-2">Total de tareas: <strong>{{ tareas|length }}</strong></p>
+                        <p class="mb-2">Pendientes: <span class="badge bg-warning text-dark">{{ pendientes }}</span></p>
+                        <p class="mb-2">En progreso: <span class="badge bg-info text-dark">{{ en_progreso }}</span></p>
+                        <p class="mb-0">Completadas: <span class="badge bg-success">{{ completadas }}</span></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

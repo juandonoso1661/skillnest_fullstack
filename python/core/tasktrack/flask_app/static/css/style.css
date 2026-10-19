@@ -1,0 +1,76 @@
+/* Estilos generales */
+body {
+    background-color: #f8f9fa;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #333;
+}
+
+/* Navbar personalizada */
+.navbar {
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.navbar-brand {
+    font-size: 1.4rem;
+    letter-spacing: 0.5px;
+}
+
+/* Tarjetas y contenedores */
+.card {
+    border: 1px solid #e3e6f0;
+    border-radius: 8px;
+    transition: transform 0.15s ease-in-out;
+}
+
+.card-header {
+    border-bottom: 1px solid #e3e6f0;
+    background-color: #ffffff !important;
+}
+
+/* Tablas */
+.table {
+    margin-bottom: 0;
+}
+
+.table th {
+    font-weight: 600;
+    color: #495057;
+    background-color: #f1f3f5;
+    border-bottom: 2px solid #dee2e6;
+}
+
+.table td {
+    vertical-align: middle;
+}
+
+/* Badges personalizados para prioridad y estado */
+.badge {
+    font-size: 0.85rem;
+    padding: 0.4em 0.75em;
+    border-radius: 4px;
+    font-weight: 500;
+}
+
+/* Botones y enlaces */
+.btn-dark {
+    background-color: #212529;
+    border-color: #212529;
+}
+
+.btn-dark:hover {
+    background-color: #343a40;
+    border-color: #343a40;
+}
+
+/* Alertas relámpago (Flash) */
+.alert {
+    border-radius: 6px;
+    border: none;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+/* Formulario de login/registro */
+.card h3 {
+    font-weight: 700;
+    color: #212529;
+}
